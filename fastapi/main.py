@@ -11,10 +11,13 @@ def load_data():
     
     
 
-@app.get("/")
+@app.get("/home")
 def home():
     return {"message": "Patient management API"}
     
+@app.get("/about")
+def about():
+    return {"message": "patient management with FastAPI endpoints and pydantic models"}    
     
 @app.get("/patients")
 def view():
@@ -44,14 +47,6 @@ def sort_patients(sort_by:str = Query(...,description="Sort on basis of height, 
     return {"sorted_data": sorted_data}
         
     
-
-# @app.delete('/patient/{patient_id}')
-# async def delete_patient(patient_id: str):
-#     data = load_data()
-#     if patient_id in data:
-#         del data[patient_id]
-#         return {"deleted patient": f'{data[patient_id]}'}
-#     raise HTTPException(status_code=404, detail="patient not found")
         
 
 if __name__ == "__main__":

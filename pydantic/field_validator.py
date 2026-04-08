@@ -49,3 +49,5 @@ patient_info = {'name':'nitish', 'email':'abc@icici.com', 'age': '30', 'weight':
 patient1 = Patient(**patient_info) # validation -> type coercion
 
 update_patient_data(patient1)
+
+
