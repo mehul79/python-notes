@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16
+    container_name: postgres_16
+    restart: always
+    environment:
+      POSTGRES_USER: user        # Default superuser
+      POSTGRES_PASSWORD: password # Required: change this for production
+      POSTGRES_DB: mydatabase   # Optional: name of database to create
+    ports:
+      - "5432:5432"              # Map Host port 5432 to Container port 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    shm_size: 128mb             # Recommended shared memory limit
+
+volumes:
+  pgdata:                       # Named volume for persistent data storage
